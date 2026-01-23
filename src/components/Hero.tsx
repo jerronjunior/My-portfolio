@@ -21,7 +21,7 @@ export default function Hero() {
         <h1 className="hero-title">
           Hi, I'm <span className="highlight">Velu Spencer Jerrom</span>
         </h1>
-        <h2 className="hero-subtitle">Full Stack Developer & Designer</h2>
+        <h2 className="hero-subtitle">software engineer & Designer</h2>
         <p className="hero-description">
           I craft beautiful digital experiences with clean code and creative design.
           Passionate about building solutions that make a difference.
