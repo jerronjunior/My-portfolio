@@ -44,7 +44,7 @@ export default function About() {
                 <span className="highlight-label">Projects Completed</span>
               </div>
               <div className="highlight-item">
-                <span className="highlight-number">30+</span>
+                <span className="highlight-number">10+</span>
                 <span className="highlight-label">Happy Clients</span>
               </div>
             </div>
