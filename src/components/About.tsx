@@ -21,14 +21,18 @@ export default function About() {
               and continuous learning, I love turning ideas into practical digital solutions that work seamlessly across devices.
             </p>
             <p className="about-details">
-              My journey in web development started several years ago, and since then, I've worked
-              on diverse projects ranging from simple landing pages to complex web applications.
-              I'm constantly learning and staying up-to-date with the latest technologies and best
-              practices.
+             My journey in web development started several years ago, and since then, 
+             I've worked on diverse projects ranging from simple landing pages to complex 
+             web applications. I'm constantly learning and staying up-to-date with the latest
+              technologies and best practices.
+
+.
             </p>
             <p className="about-focus">
-              When I'm not coding, you can find me exploring new technologies, contributing to
-              open-source projects, or sharing knowledge with the developer community.
+              I’m always eager to learn new technologies and improve my skills through 
+              hands-on projects and real-world experience. When I’m not coding, 
+              I enjoy exploring new tools, enhancing my existing projects, and expanding 
+              my knowledge to grow as a better developer.
             </p>
             <div className="about-highlights">
               <div className="highlight-item">
