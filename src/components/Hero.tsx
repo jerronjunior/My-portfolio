@@ -19,7 +19,7 @@ export default function Hero() {
     <section id="home" className="hero">
       <div className={`hero-content ${isVisible ? 'visible' : ''}`}>
         <h1 className="hero-title">
-          Hi, I'm <span className="highlight">Your Name</span>
+          Hi, I'm <span className="highlight">Velu Spencer Jerrom</span>
         </h1>
         <h2 className="hero-subtitle">Full Stack Developer & Designer</h2>
         <p className="hero-description">
