@@ -39,7 +39,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3>Email</h3>
-                <p>your.email@example.com</p>
+                <p>veluspencerjerom@gmail.com</p>
               </div>
             </div>
             <div className="info-item">
