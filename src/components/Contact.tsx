@@ -87,7 +87,7 @@ export default function Contact() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                placeholder="your.email@example.com"
+                placeholder="veluspencerjerom@gmail.com"
               />
             </div>
             <div className="form-group">
