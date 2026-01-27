@@ -61,7 +61,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3>Location</h3>
-                <p>San Francisco, CA</p>
+                <p>Colombo,SriLanka</p>
               </div>
             </div>
           </div>
