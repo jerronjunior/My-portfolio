@@ -50,7 +50,7 @@ export default function Contact() {
               </div>
               <div>
                 <h3>Phone</h3>
-                <p>+1 (555) 123-4567</p>
+                <p>+94 713712813</p>
               </div>
             </div>
             <div className="info-item">
