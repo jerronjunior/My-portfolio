@@ -10,7 +10,7 @@ const skillsData = {
   'Backend': [
     { name: 'Node.js', level: 82 },
     { name: 'Express', level: 80 },
-    { name: 'PostgreSQL', level: 78 },
+    { name: 'Firebase', level: 78 },
     { name: 'REST APIs', level: 85 },
   ],
   'Tools & Others': [
