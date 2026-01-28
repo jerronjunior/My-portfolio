@@ -8,6 +8,7 @@ const skillsData = {
     
   ],
   'Backend': [
+    { name: 'Firebase', level: 90 },
     { name: 'Node.js', level: 82 },
     { name: 'Express', level: 80 },
     
