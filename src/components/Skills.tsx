@@ -15,6 +15,7 @@ const skillsData = {
   ],
   'Tools & Others': [
     { name: 'Git', level: 88 },
+    { name: 'Figma', level: 80 },
     { name: 'AWS', level: 70 },
     
   ],
