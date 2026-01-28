@@ -5,7 +5,7 @@ const skillsData = {
     { name: 'React', level: 90 },
     { name: 'TypeScript', level: 85 },
     { name: 'HTML/CSS', level: 95 },
-    { name: 'Tailwind CSS', level: 88 },
+    
   ],
   'Backend': [
     { name: 'Node.js', level: 82 },
