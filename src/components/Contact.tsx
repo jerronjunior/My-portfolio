@@ -111,7 +111,7 @@ export default function Contact() {
       <footer className="footer">
         <p>&copy; 2024 Your Name. All rights reserved.</p>
         <div className="social-links">
-          <a href="#" aria-label="GitHub">GitHub</a>
+          <a href="#" aria-label="https://github.com/jerronjunior">GitHub</a>
           <a href="#" aria-label="LinkedIn">LinkedIn</a>
         </div>
       </footer>
