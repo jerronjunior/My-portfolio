@@ -113,7 +113,6 @@ export default function Contact() {
         <div className="social-links">
           <a href="#" aria-label="GitHub">GitHub</a>
           <a href="#" aria-label="LinkedIn">LinkedIn</a>
-          <a href="#" aria-label="Twitter">Twitter</a>
         </div>
       </footer>
     </section>
