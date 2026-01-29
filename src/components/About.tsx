@@ -13,7 +13,8 @@ export default function About() {
           </div>
           <div className="about-text">
             <p className="about-intro">
-               building responsive, user-friendly web and mobile applications with a focus on clean design and efficient code. Passionate about problem-solving 
+              Hello! I’m an aspiring Software Engineer and Mobile App Developer with strong skills in Flutter, Dart, Java, and modern web technologies. 
+              I enjoy building responsive, user-friendly web and mobile applications with a focus on clean design and efficient code. Passionate about problem-solving 
               and continuous learning, I love turning ideas into practical digital solutions that work seamlessly across devices.
             </p>
             <p className="about-details">
