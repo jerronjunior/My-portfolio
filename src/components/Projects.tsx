@@ -4,7 +4,7 @@ const projects = [
   {
     id: 1,
     title: 'JS-Stores',
-    description: 'A full-featured online shopping platform with cart, checkout, and payment integration.',
+    description: ' A cross-platform app for managing online stores, supporting Android, iOS,macOS, Linux, Windows, and web, with inventory management tools and a seamlessuser experience.',
     tags: ['Dart', 'Flutter', 'HTML'],
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
