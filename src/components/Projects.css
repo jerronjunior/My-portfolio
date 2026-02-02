@@ -79,6 +79,31 @@
   transform: scale(1.05);
 }
 
+.project-links {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-link {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: #2563eb;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.project-link:hover {
+  transform: scale(1.05);
+  background: #f0f9ff;
+}
+
 .project-content {
   padding: 1.5rem;
 }
