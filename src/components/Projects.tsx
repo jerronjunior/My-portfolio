@@ -1,42 +1,47 @@
 import './Projects.css';
 
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-  githubLink?: string;
-  liveLink?: string;
-}
-
-const projects: Project[] = [
+const projects = [
   {
     id: 1,
-    title: 'Your Project Title 1',
-    description: 'Add your project description here. Describe what the project does and its key features.',
-    tags: ['Technology1', 'Technology2', 'Technology3'],
+    title: 'E-Commerce Platform',
+    description: 'A full-featured online shopping platform with cart, checkout, and payment integration.',
+    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    githubLink: 'https://github.com/yourusername/project1',
-    liveLink: 'https://project1-demo.com',
   },
   {
     id: 2,
-    title: 'Your Project Title 2',
-    description: 'Add your project description here. Describe what the project does and its key features.',
-    tags: ['Technology1', 'Technology2', 'Technology3'],
+    title: 'Task Management App',
+    description: 'A collaborative task management tool with real-time updates and team features.',
+    tags: ['React', 'TypeScript', 'Supabase'],
     image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
-    githubLink: 'https://github.com/yourusername/project2',
-    liveLink: 'https://project2-demo.com',
   },
   {
     id: 3,
-    title: 'Your Project Title 3',
-    description: 'Add your project description here. Describe what the project does and its key features.',
-    tags: ['Technology1', 'Technology2', 'Technology3'],
+    title: 'Social Media Dashboard',
+    description: 'Analytics dashboard for tracking social media metrics across multiple platforms.',
+    tags: ['React', 'D3.js', 'REST API'],
     image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
-    githubLink: 'https://github.com/yourusername/project3',
-    liveLink: 'https://project3-demo.com',
+  },
+  {
+    id: 4,
+    title: 'Weather Forecast App',
+    description: 'Real-time weather application with beautiful UI and location-based forecasts.',
+    tags: ['React', 'API Integration', 'CSS'],
+    image: 'https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 5,
+    title: 'Portfolio Website',
+    description: 'Modern portfolio website with smooth animations and responsive design.',
+    tags: ['React', 'TypeScript', 'Vite'],
+    image: 'https://images.pexels.com/photos/326514/pexels-photo-326514.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 6,
+    title: 'Blog Platform',
+    description: 'Content management system with markdown support and SEO optimization.',
+    tags: ['React', 'Node.js', 'MongoDB'],
+    image: 'https://images.pexels.com/photos/270637/pexels-photo-270637.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
 ];
 
@@ -51,18 +56,7 @@ export default function Projects() {
               <div className="project-image">
                 <img src={project.image} alt={project.title} />
                 <div className="project-overlay">
-                  <div className="project-links">
-                    {project.githubLink && (
-                      <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link">
-                        GitHub
-                      </a>
-                    )}
-                    {project.liveLink && (
-                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="project-link">
-                        Live Demo
-                      </a>
-                    )}
-                  </div>
+                  <button className="view-project-btn">View Project</button>
                 </div>
               </div>
               <div className="project-content">
