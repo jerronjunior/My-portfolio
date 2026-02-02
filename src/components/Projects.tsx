@@ -3,9 +3,9 @@ import './Projects.css';
 const projects = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'JS-Stores',
     description: 'A full-featured online shopping platform with cart, checkout, and payment integration.',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+    tags: ['Dart', 'Flutter', 'HTML'],
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
