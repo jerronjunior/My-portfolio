@@ -249,7 +249,7 @@ export default function Hero() {
       <div className={`hero-content ${isVisible ? 'visible' : ''}`}>
         <div className="hero-badge">
           <span className="badge-dot"></span>
-          Available for opportunities
+          My Portfolio
         </div>
         
         <h1 className="hero-title">
