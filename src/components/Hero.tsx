@@ -294,23 +294,6 @@ export default function Hero() {
             <span>View My Work</span>
           </a>
         </div>
-        
-        <div className="hero-tech-stack">
-          <span className="tech-label">Tech Stack:</span>
-          <div className="tech-icons">
-            <span className="tech-icon">React</span>
-            <span className="tech-icon">TypeScript</span>
-            <span className="tech-icon">Node.js</span>
-            <span className="tech-icon">Python</span>
-          </div>
-        </div>
-      </div>
-      
-      <div className="hero-scroll-indicator">
-        <div className="scroll-mouse">
-          <div className="scroll-wheel"></div>
-        </div>
-        <span className="scroll-text">Scroll Down</span>
       </div>
     </section>
   );
