@@ -267,7 +267,7 @@ export default function Hero() {
         
         <div className="hero-stats">
           <div className="stat-item">
-            <div className="stat-number">5+</div>
+            <div className="stat-number">2+</div>
             <div className="stat-label">Years Experience</div>
           </div>
           <div className="stat-item">
