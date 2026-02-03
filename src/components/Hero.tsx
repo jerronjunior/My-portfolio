@@ -29,15 +29,15 @@ export default function Hero() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    // Lighting for binary code
+    // Lighting for binary code with blue tones
     const ambientLight = new (window as any).THREE.AmbientLight(0xffffff, 0.3);
     scene.add(ambientLight);
     
-    const pointLight1 = new (window as any).THREE.PointLight(0x00ff00, 0.8);
+    const pointLight1 = new (window as any).THREE.PointLight(0x0ea5e9, 0.8);
     pointLight1.position.set(10, 10, 10);
     scene.add(pointLight1);
     
-    const pointLight2 = new (window as any).THREE.PointLight(0x0080ff, 0.6);
+    const pointLight2 = new (window as any).THREE.PointLight(0x2563eb, 0.6);
     pointLight2.position.set(-10, -10, 10);
     scene.add(pointLight2);
 
@@ -79,10 +79,10 @@ export default function Hero() {
         const digit = Math.random() > 0.5 ? '1' : '0';
         const isLeading = i === digitsInColumn - 1;
         
-        // Create sprite for binary digit
+        // Create sprite for binary digit with blue colors
         const texture = createBinaryTexture(
           digit, 
-          isLeading ? '#00ff00' : '#003300'
+          isLeading ? '#0ea5e9' : '#1e3a5f'
         );
         
         const spriteMaterial = new (window as any).THREE.SpriteMaterial({
@@ -115,7 +115,7 @@ export default function Hero() {
       });
     }
 
-    // Add floating binary particles
+    // Add floating binary particles with blue colors
     const particleCount = 100;
     const particleGeometry = new (window as any).THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
@@ -126,10 +126,10 @@ export default function Hero() {
       particlePositions[i * 3 + 1] = (Math.random() - 0.5) * 50;
       particlePositions[i * 3 + 2] = (Math.random() - 0.5) * 50;
       
-      // Green-ish color for particles
-      particleColors[i * 3] = 0;
-      particleColors[i * 3 + 1] = 0.5 + Math.random() * 0.5;
-      particleColors[i * 3 + 2] = 0.2;
+      // Blue color for particles
+      particleColors[i * 3] = 0.1 + Math.random() * 0.3;
+      particleColors[i * 3 + 1] = 0.5 + Math.random() * 0.3;
+      particleColors[i * 3 + 2] = 0.8 + Math.random() * 0.2;
     }
     
     particleGeometry.setAttribute('position', new (window as any).THREE.BufferAttribute(particlePositions, 3));
@@ -179,7 +179,7 @@ export default function Hero() {
               const newDigit = Math.random() > 0.5 ? '1' : '0';
               const newTexture = createBinaryTexture(
                 newDigit,
-                sprite.userData.isLeading ? '#00ff00' : '#003300'
+                sprite.userData.isLeading ? '#0ea5e9' : '#1e3a5f'
               );
               sprite.material.map = newTexture;
               sprite.userData.digit = newDigit;
