@@ -257,7 +257,7 @@ export default function Hero() {
         </h1>
         
         <h2 className="hero-subtitle">
-          <span>Software Engineer & Designer</span>
+          <span className="typing-effect">Software Engineer & Designer</span>
         </h2>
         
         <p className="hero-description">
