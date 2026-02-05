@@ -19,7 +19,7 @@ const projects = [
     id: 3,
     title: 'Blood Connect Website',
     description: ':A platform that connects blooddonors with recipients, allowing users to register as donors and request blood.',
-    tags: ['HTML', 'D3.js', 'REST API'],
+    tags: ['HTML', 'CSS', 'REST API'],
     image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
