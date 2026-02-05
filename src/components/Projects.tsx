@@ -10,7 +10,7 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Task Management App',
+    title: 'Action to talk (A2T)',
     description: 'A collaborative task management tool with real-time updates and team features.',
     tags: ['React', 'TypeScript', 'Supabase'],
     image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
