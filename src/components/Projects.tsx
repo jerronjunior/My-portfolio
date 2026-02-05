@@ -12,7 +12,7 @@ const projects = [
     id: 2,
     title: 'Action to talk (A2T)',
     description: 'An application aimed at facilitating communication for non-hearing and non speaking individuals using sign language translation..',
-    tags: ['Java', 'Machine Learning', 'Supabase'],
+    tags: ['Java', 'Machine Learning', 'Firebase'],
     image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
