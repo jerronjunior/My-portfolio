@@ -11,7 +11,7 @@ const projects = [
   {
     id: 2,
     title: 'Action to talk (A2T)',
-    description: 'A collaborative task management tool with real-time updates and team features.',
+    description: 'An application aimed at facilitating communication for non-hearing and non speaking individuals using sign language translation..',
     tags: ['React', 'TypeScript', 'Supabase'],
     image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
