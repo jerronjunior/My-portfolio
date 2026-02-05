@@ -17,7 +17,7 @@ const projects = [
   },
   {
     id: 3,
-    title: 'Social Media Dashboard',
+    title: 'Blood Connect Website',
     description: 'Analytics dashboard for tracking social media metrics across multiple platforms.',
     tags: ['React', 'D3.js', 'REST API'],
     image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
