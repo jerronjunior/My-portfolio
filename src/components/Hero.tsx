@@ -3,6 +3,7 @@ import './Hero.css';
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
+  const [showCvViewer, setShowCvViewer] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -240,6 +241,19 @@ export default function Hero() {
     }
   };
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setShowCvViewer(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  const cvPath = '/cv/Spencer_jerrom.pdf';
+
   return (
     <section id="home" className="hero">
       <canvas ref={canvasRef} className="hero-canvas" />
@@ -293,8 +307,37 @@ export default function Hero() {
             </svg>
             <span>View My Work</span>
           </a>
+          <a
+            href={cvPath}
+            className="btn btn-secondary"
+            onClick={(event) => {
+              event.preventDefault();
+              setShowCvViewer(true);
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 3V13M10 13L14 9M10 13L6 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M4 15H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+            </svg>
+            <span>View CV</span>
+          </a>
         </div>
       </div>
+
+      {showCvViewer && (
+        <div className="hero-cv-modal" onClick={() => setShowCvViewer(false)} role="presentation">
+          <div className="hero-cv-modal-content" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              className="hero-cv-modal-close"
+              onClick={() => setShowCvViewer(false)}
+            >
+              Close
+            </button>
+            <iframe src={cvPath} title="CV Viewer" className="hero-cv-frame" />
+          </div>
+        </div>
+      )}
     </section>
   );
 }

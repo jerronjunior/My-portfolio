@@ -8,7 +8,7 @@ export default function About() {
         <div className="about-content">
           <div className="about-image">
             <div className="image-placeholder">
-              <img src="jerrom.png" alt="Profile" className="profile-pic" />
+              <img src="/jerrom.png" alt="Velu Spencer Jerrom" className="profile-pic" />
             </div>
           </div>
           <div className="about-text">
