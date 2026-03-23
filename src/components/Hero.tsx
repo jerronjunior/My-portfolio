@@ -4,6 +4,7 @@ import './Hero.css';
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [showCvViewer, setShowCvViewer] = useState(false);
+  const [cvZoom, setCvZoom] = useState(100);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -253,6 +254,7 @@ export default function Hero() {
   }, []);
 
   const cvPath = '/cv/Spencer_jerrom.pdf';
+  const cvViewerSrc = `${cvPath}#zoom=${cvZoom}`;
 
   return (
     <section id="home" className="hero">
@@ -312,6 +314,7 @@ export default function Hero() {
             className="btn btn-secondary"
             onClick={(event) => {
               event.preventDefault();
+              setCvZoom(100);
               setShowCvViewer(true);
             }}
           >
@@ -327,14 +330,33 @@ export default function Hero() {
       {showCvViewer && (
         <div className="hero-cv-modal" onClick={() => setShowCvViewer(false)} role="presentation">
           <div className="hero-cv-modal-content" onClick={(event) => event.stopPropagation()}>
-            <button
-              type="button"
-              className="hero-cv-modal-close"
-              onClick={() => setShowCvViewer(false)}
-            >
-              Close
-            </button>
-            <iframe src={cvPath} title="CV Viewer" className="hero-cv-frame" />
+            <div className="hero-cv-toolbar">
+              <div className="hero-cv-zoom-controls">
+                <button
+                  type="button"
+                  className="hero-cv-zoom-btn"
+                  onClick={() => setCvZoom((prev) => Math.max(50, prev - 10))}
+                >
+                  -
+                </button>
+                <span className="hero-cv-zoom-label">{cvZoom}%</span>
+                <button
+                  type="button"
+                  className="hero-cv-zoom-btn"
+                  onClick={() => setCvZoom((prev) => Math.min(200, prev + 10))}
+                >
+                  +
+                </button>
+              </div>
+              <button
+                type="button"
+                className="hero-cv-modal-close"
+                onClick={() => setShowCvViewer(false)}
+              >
+                Close
+              </button>
+            </div>
+            <iframe src={cvViewerSrc} title="CV Viewer" className="hero-cv-frame" />
           </div>
         </div>
       )}
