@@ -41,7 +41,7 @@ const projects = [
     id: 5,
     title: 'Fitness Gym',
     description: 'A fitness and workout web application for training plans, routines, and progress tracking.',
-    tags: ['HTML', 'TypeScript', 'Other'],
+    tags: ['HTML', 'TypeScript'],
     image: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800',
     github: 'https://github.com/jerronjunior/fitness_gym',
     demo: 'https://fitness-gym-livid.vercel.app/',

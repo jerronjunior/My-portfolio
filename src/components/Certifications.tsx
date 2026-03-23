@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './Certifications.css';
 
 type Certificate = {
@@ -20,14 +21,14 @@ const certificates: Certificate[] = [
   {
     id: 2,
     title: 'Machine Learning Using Python & SKLearn Bootcamp',
-    fileName: 'Machine Learning using Python & SKLearn Bootcamp.pdf',
+    fileName: 'Machine Learning using Python and SKLearn Bootcamp.pdf',
     year: '2023',
     image:
       'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     id: 3,
-    title: 'Z1TDjMz Certificate',
+    title: 'Back-end Web Developmet using JavaScript',
     fileName: 'Z1TDjMz.pdf',
     year: '2022',
     image:
@@ -35,7 +36,7 @@ const certificates: Certificate[] = [
   },
   {
     id: 4,
-    title: 'UfiqK Certificate',
+    title: 'Machine Learning using Python',
     fileName: 'ufiqK.pdf',
     year: '2023',
     image:
@@ -44,6 +45,36 @@ const certificates: Certificate[] = [
 ];
 
 export default function Certifications() {
+  const [activeCertificate, setActiveCertificate] = useState<string | null>(null);
+  const [viewerMessage, setViewerMessage] = useState<string | null>(null);
+
+  const closeViewer = () => {
+    setActiveCertificate(null);
+    setViewerMessage(null);
+  };
+
+  const openCertificate = async (certificatePath: string, title: string) => {
+    setActiveCertificate(null);
+    setViewerMessage('Loading certificate...');
+
+    try {
+      const response = await fetch(certificatePath, { method: 'HEAD' });
+      const contentType = response.headers.get('content-type') || '';
+
+      if (!response.ok || !contentType.toLowerCase().includes('pdf')) {
+        setViewerMessage(
+          `${title} file was not found in public/certificates. Add the PDF file to view it here.`
+        );
+        return;
+      }
+
+      setViewerMessage(null);
+      setActiveCertificate(certificatePath);
+    } catch {
+      setViewerMessage('Could not load this certificate right now. Please try again.');
+    }
+  };
+
   return (
     <section id="certifications" className="certifications">
       <div className="certifications-container">
@@ -58,17 +89,13 @@ export default function Certifications() {
                   <img src={certificate.image} alt={certificate.title} />
                   <div className="certificate-overlay">
                     <div className="certificate-links">
-                      <a
+                      <button
                         className="certificate-link"
-                        href={certificatePath}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        type="button"
+                        onClick={() => void openCertificate(certificatePath, certificate.title)}
                       >
                         View Certificate
-                      </a>
-                      <a className="certificate-link" href={certificatePath} download>
-                        Download
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -82,6 +109,33 @@ export default function Certifications() {
           })}
         </div>
       </div>
+
+      {(activeCertificate || viewerMessage) && (
+        <div
+          className="certificate-modal"
+          onClick={closeViewer}
+          role="presentation"
+        >
+          <div className="certificate-modal-content" onClick={(event) => event.stopPropagation()}>
+            <button
+              type="button"
+              className="certificate-modal-close"
+              onClick={closeViewer}
+            >
+              Close
+            </button>
+            {activeCertificate ? (
+              <iframe
+                src={activeCertificate}
+                title="Certificate Viewer"
+                className="certificate-frame"
+              />
+            ) : (
+              <div className="certificate-message">{viewerMessage}</div>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
