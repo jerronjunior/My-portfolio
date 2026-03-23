@@ -8,7 +8,7 @@ const projects = [
     tags: ['Dart', 'Flutter', 'HTML'],
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
     github: '#',
-    demo: '#',
+    demo: '',
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const projects = [
     tags: ['Java', 'Machine Learning', 'Firebase'],
     image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
     github: '#',
-    demo: '#',
+    demo: '',
   },
   {
     id: 3,
@@ -26,7 +26,7 @@ const projects = [
     tags: ['HTML', 'CSS', 'JavaScript','MySQL'],
     image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=800',
     github: '#',
-    demo: '#',
+    demo: '',
   },
   {
     id: 4,
@@ -35,16 +35,16 @@ const projects = [
     tags: ['Flutter', 'Mobile App', 'Dart'],
     image: 'https://images.pexels.com/photos/4491461/pexels-photo-4491461.jpeg?auto=compress&cs=tinysrgb&w=800',
     github: 'https://github.com/jerronjunior/Price-ur-Plastic',
-    demo: '#',
+    demo: '',
   },
   {
     id: 5,
     title: 'Fitness Gym',
-    description: 'A fitness and workout application for training plans, routines, and progress tracking.',
-    tags: ['Flutter', 'Fitness', 'Dart'],
+    description: 'A fitness and workout web application for training plans, routines, and progress tracking.',
+    tags: ['HTML', 'TypeScript', 'Other'],
     image: 'https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg?auto=compress&cs=tinysrgb&w=800',
     github: 'https://github.com/jerronjunior/fitness_gym',
-    demo: '#',
+    demo: 'https://fitness-gym-livid.vercel.app/',
   },
   {
     id: 6,
@@ -53,7 +53,7 @@ const projects = [
     tags: ['Flutter', 'App Development', 'Dart'],
     image: 'https://images.pexels.com/photos/7679720/pexels-photo-7679720.jpeg?auto=compress&cs=tinysrgb&w=800',
     github: 'https://github.com/jerronjunior/Tailor-app',
-    demo: '#',
+    demo: '',
   },
 ];
 
@@ -77,14 +77,16 @@ export default function Projects() {
                     >
                       GitHub
                     </a>
-                    <a
-                      className="project-link"
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Live Demo
-                    </a>
+                    {project.demo && (
+                      <a
+                        className="project-link"
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
