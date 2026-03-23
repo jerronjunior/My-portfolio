@@ -9,7 +9,7 @@ export default function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
 
-      const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'certifications', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -37,7 +37,7 @@ export default function Navigation() {
       <div className="nav-container">
         <div className="nav-logo">Portfolio</div>
         <ul className="nav-menu">
-          {['home', 'about', 'skills', 'projects', 'contact'].map((item) => (
+          {['home', 'about', 'skills', 'projects', 'certifications', 'contact'].map((item) => (
             <li key={item}>
               <button
                 onClick={() => scrollToSection(item)}
