@@ -1,28 +1,123 @@
 import { useEffect, useState, useRef } from 'react';
 import './Hero.css';
 
+interface Vector3Like {
+  x: number;
+  y: number;
+  z: number;
+  set(x: number, y: number, z: number): void;
+}
+
+interface CameraLike {
+  position: Vector3Like;
+  aspect: number;
+  updateProjectionMatrix(): void;
+  lookAt(x: number, y: number, z: number): void;
+}
+
+interface RendererLike {
+  setSize(width: number, height: number): void;
+  setPixelRatio(ratio: number): void;
+  render(scene: SceneLike, camera: CameraLike): void;
+  dispose(): void;
+}
+
+interface SceneLike {
+  add(object: unknown): void;
+}
+
+interface SpriteMaterialLike {
+  opacity: number;
+  map: unknown;
+}
+
+interface SpriteUserData {
+  originalY: number;
+  speed: number;
+  digit: string;
+  isLeading: boolean;
+  opacity: number;
+}
+
+interface SpriteLike {
+  position: Vector3Like;
+  scale: Vector3Like;
+  material: SpriteMaterialLike;
+  userData: SpriteUserData;
+}
+
+interface BufferAttributeLike {
+  array: Float32Array;
+  needsUpdate: boolean;
+}
+
+interface BufferGeometryLike {
+  attributes: {
+    position: BufferAttributeLike;
+  };
+  setAttribute(name: string, attribute: BufferAttributeLike): void;
+}
+
+interface PointsLike {
+  rotation: {
+    y: number;
+  };
+}
+
+interface ThreeNamespaceLike {
+  Scene: new () => SceneLike;
+  PerspectiveCamera: new (fov: number, aspect: number, near: number, far: number) => CameraLike;
+  WebGLRenderer: new (options: {
+    canvas: HTMLCanvasElement;
+    alpha: boolean;
+    antialias: boolean;
+  }) => RendererLike;
+  AmbientLight: new (color: number, intensity: number) => unknown;
+  PointLight: new (color: number, intensity: number) => { position: Vector3Like };
+  CanvasTexture: new (canvas: HTMLCanvasElement) => unknown;
+  SpriteMaterial: new (options: { map: unknown; transparent: boolean; opacity: number }) => SpriteMaterialLike;
+  Sprite: new (material: SpriteMaterialLike) => SpriteLike;
+  BufferGeometry: new () => BufferGeometryLike;
+  BufferAttribute: new (array: Float32Array, itemSize: number) => BufferAttributeLike;
+  PointsMaterial: new (options: {
+    size: number;
+    vertexColors: boolean;
+    transparent: boolean;
+    opacity: number;
+  }) => unknown;
+  Points: new (geometry: BufferGeometryLike, material: unknown) => PointsLike;
+}
+
+interface BinaryColumn {
+  sprites: SpriteLike[];
+  resetTimer: number;
+  xPos: number;
+  zPos: number;
+}
+
 export default function Hero() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible] = useState(true);
   const [showCvViewer, setShowCvViewer] = useState(false);
   const [cvZoom, setCvZoom] = useState(100);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    setIsVisible(true);
-    
     // Three.js 3D Binary Code Background
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const scene = new (window as any).THREE.Scene();
-    const camera = new (window as any).THREE.PerspectiveCamera(
+    const THREE = (window as unknown as { THREE?: ThreeNamespaceLike }).THREE;
+    if (!THREE) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(
       75,
       window.innerWidth / window.innerHeight,
       0.1,
       1000
     );
     
-    const renderer = new (window as any).THREE.WebGLRenderer({
+    const renderer = new THREE.WebGLRenderer({
       canvas,
       alpha: true,
       antialias: true,
@@ -32,19 +127,19 @@ export default function Hero() {
     renderer.setPixelRatio(window.devicePixelRatio);
 
     // Lighting for binary code with blue tones
-    const ambientLight = new (window as any).THREE.AmbientLight(0xffffff, 0.3);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
     scene.add(ambientLight);
     
-    const pointLight1 = new (window as any).THREE.PointLight(0x0ea5e9, 0.8);
+    const pointLight1 = new THREE.PointLight(0x0ea5e9, 0.8);
     pointLight1.position.set(10, 10, 10);
     scene.add(pointLight1);
     
-    const pointLight2 = new (window as any).THREE.PointLight(0x2563eb, 0.6);
+    const pointLight2 = new THREE.PointLight(0x2563eb, 0.6);
     pointLight2.position.set(-10, -10, 10);
     scene.add(pointLight2);
 
     // Create binary code columns
-    const binaryColumns: any[] = [];
+    const binaryColumns: BinaryColumn[] = [];
     const columnCount = 30;
     
     // Create canvas texture for binary digits
@@ -66,13 +161,13 @@ export default function Hero() {
         ctx.fillText(digit, size / 2, size / 2);
       }
       
-      const texture = new (window as any).THREE.CanvasTexture(textCanvas);
+      const texture = new THREE.CanvasTexture(textCanvas);
       return texture;
     };
 
     // Create multiple binary columns
     for (let col = 0; col < columnCount; col++) {
-      const column: any[] = [];
+      const column: SpriteLike[] = [];
       const digitsInColumn = Math.floor(Math.random() * 15) + 10;
       const xPos = (col - columnCount / 2) * 2;
       const zPos = Math.random() * 30 - 15;
@@ -87,13 +182,13 @@ export default function Hero() {
           isLeading ? '#0ea5e9' : '#1e3a5f'
         );
         
-        const spriteMaterial = new (window as any).THREE.SpriteMaterial({
+        const spriteMaterial = new THREE.SpriteMaterial({
           map: texture,
           transparent: true,
           opacity: isLeading ? 1 : 0.3 + Math.random() * 0.4,
         });
         
-        const sprite = new (window as any).THREE.Sprite(spriteMaterial);
+        const sprite = new THREE.Sprite(spriteMaterial);
         sprite.position.set(xPos, 15 - i * 2, zPos);
         sprite.scale.set(1.5, 1.5, 1);
         
@@ -119,7 +214,7 @@ export default function Hero() {
 
     // Add floating binary particles with blue colors
     const particleCount = 100;
-    const particleGeometry = new (window as any).THREE.BufferGeometry();
+    const particleGeometry = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(particleCount * 3);
     const particleColors = new Float32Array(particleCount * 3);
     
@@ -134,17 +229,17 @@ export default function Hero() {
       particleColors[i * 3 + 2] = 0.8 + Math.random() * 0.2;
     }
     
-    particleGeometry.setAttribute('position', new (window as any).THREE.BufferAttribute(particlePositions, 3));
-    particleGeometry.setAttribute('color', new (window as any).THREE.BufferAttribute(particleColors, 3));
+    particleGeometry.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+    particleGeometry.setAttribute('color', new THREE.BufferAttribute(particleColors, 3));
     
-    const particleMaterial = new (window as any).THREE.PointsMaterial({
+    const particleMaterial = new THREE.PointsMaterial({
       size: 0.1,
       vertexColors: true,
       transparent: true,
       opacity: 0.6,
     });
     
-    const particles = new (window as any).THREE.Points(particleGeometry, particleMaterial);
+    const particles = new THREE.Points(particleGeometry, particleMaterial);
     scene.add(particles);
 
     camera.position.z = 20;
@@ -169,7 +264,7 @@ export default function Hero() {
 
       // Animate binary columns falling
       binaryColumns.forEach((column) => {
-        column.sprites.forEach((sprite: any) => {
+        column.sprites.forEach((sprite) => {
           sprite.position.y -= sprite.userData.speed;
           
           // Reset when reaching bottom
@@ -291,7 +386,7 @@ export default function Hero() {
             <div className="stat-label">Projects Completed</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number">10+</div>
+            <div className="stat-number">15+</div>
             <div className="stat-label">Happy Clients</div>
           </div>
         </div>

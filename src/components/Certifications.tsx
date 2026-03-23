@@ -28,7 +28,7 @@ const certificates: Certificate[] = [
   },
   {
     id: 3,
-    title: 'Z1TDjMz Certificate',
+    title: 'Backend Development using JavaScript and Node.js',
     fileName: 'Z1TDjMz.pdf',
     year: '2022',
     image:
@@ -36,7 +36,7 @@ const certificates: Certificate[] = [
   },
   {
     id: 4,
-    title: 'UfiqK Certificate',
+    title: 'Machine Learning Using Python',
     fileName: 'ufiqK.pdf',
     year: '2023',
     image:
