@@ -1,5 +1,15 @@
 import { useState } from 'react';
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 import './Contact.css';
+
+const escapeHtml = (value: string) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -7,12 +17,40 @@ export default function Contact() {
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Thank you for your message! I will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+
+    try {
+      setIsSubmitting(true);
+      setSubmitMessage('');
+
+      await addDoc(collection(db, 'mail'), {
+        to: ['veluspencerjerom@gmail.com'],
+        message: {
+          subject: `New portfolio contact from ${formData.name}`,
+          text: `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
+          html: `
+            <p><strong>Name:</strong> ${escapeHtml(formData.name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(formData.email)}</p>
+            <p><strong>Message:</strong></p>
+            <p>${escapeHtml(formData.message).replace(/\n/g, '<br/>')}</p>
+          `,
+        },
+        replyTo: formData.email,
+        submittedAt: serverTimestamp(),
+      });
+
+      setSubmitMessage('Message sent successfully. Thank you!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Failed to send message:', error);
+      setSubmitMessage('Failed to send message. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -121,9 +159,10 @@ export default function Contact() {
                 placeholder="Your message..."
               />
             </div>
-            <button type="submit" className="submit-btn">
-              Send Message
+            <button type="submit" className="submit-btn" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
+            {submitMessage && <p className="submit-status">{submitMessage}</p>}
           </form>
         </div>
       </div>

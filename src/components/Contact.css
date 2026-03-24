@@ -149,6 +149,18 @@
   box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
 }
 
+.submit-btn:disabled {
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.submit-status {
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: #2563eb;
+}
+
 .footer {
   margin-top: 6rem;
   padding-top: 2rem;
