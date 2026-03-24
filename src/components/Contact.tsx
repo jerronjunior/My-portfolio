@@ -53,6 +53,25 @@ export default function Contact() {
                 <p>+94 713712813</p>
               </div>
             </div>
+            <a
+              className="info-item whatsapp-item"
+              href="https://wa.me/94713712813"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Open WhatsApp chat"
+            >
+              <div className="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 13.7392 2.44777 15.3739 3.23392 16.7941L2.5 21.5L7.2059 20.7661C8.62606 21.5522 10.2608 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M8.8 8.9C8.8 11.2 10.7 13.1 13 13.1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12.2 10.8C12.2 12.1 13.3 13.2 14.6 13.2" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </div>
+              <div>
+                <h3>WhatsApp</h3>
+                <p>+94 713712813</p>
+              </div>
+            </a>
             <div className="info-item">
               <div className="info-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
