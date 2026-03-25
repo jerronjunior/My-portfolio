@@ -23,23 +23,33 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name || !email || !message) {
+      setSubmitMessage('Please fill in all fields before sending.');
+      return;
+    }
+
     try {
       setIsSubmitting(true);
       setSubmitMessage('');
 
       await addDoc(collection(db, 'mail'), {
         to: ['veluspencerjerom@gmail.com'],
+        from: email,
         message: {
-          subject: `New portfolio contact from ${formData.name}`,
-          text: `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`,
+          subject: `New portfolio contact from ${name}`,
+          text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
           html: `
-            <p><strong>Name:</strong> ${escapeHtml(formData.name)}</p>
-            <p><strong>Email:</strong> ${escapeHtml(formData.email)}</p>
+            <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+            <p><strong>Email:</strong> ${escapeHtml(email)}</p>
             <p><strong>Message:</strong></p>
-            <p>${escapeHtml(formData.message).replace(/\n/g, '<br/>')}</p>
+            <p>${escapeHtml(message).replace(/\n/g, '<br/>')}</p>
           `,
         },
-        replyTo: formData.email,
+        replyTo: email,
         submittedAt: serverTimestamp(),
       });
 
