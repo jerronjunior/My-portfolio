@@ -42,6 +42,14 @@ const certificates: Certificate[] = [
     image:
       'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
+  {
+    id: 5,
+    title: 'Python for Beginners',
+    fileName: 'Python_for_Beginners_E-Certificate.pdf',
+    year: '2024',
+    image:
+      'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
 ];
 
 export default function Certifications() {
