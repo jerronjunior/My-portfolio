@@ -55,6 +55,16 @@ const projects = [
     github: 'https://github.com/jerronjunior/Tailor-app',
     demo: '',
   },
+  {
+    id: 7,
+    title: 'SM Engineering & Construction Website',
+    description:
+      'A modern responsive company website for house planning, design, cost estimation, structural and approval drawings, with a React frontend, Node.js backend, and Firebase integration.',
+    tags: ['React', 'Node.js', 'Firebase', 'Tailwind CSS'],
+    image: 'https://images.pexels.com/photos/2219024/pexels-photo-2219024.jpeg?auto=compress&cs=tinysrgb&w=800',
+    github: 'https://github.com/jerronjunior/SM-ENGINEERING',
+    demo: 'https://sm-engineering-zeta.vercel.app/',
+  },
 ];
 
 export default function Projects() {
