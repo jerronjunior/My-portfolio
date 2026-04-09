@@ -50,6 +50,38 @@ const certificates: Certificate[] = [
     image:
       'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
+  {
+    id: 6,
+    title: 'Artificial Intelligence and Machine Learning',
+    fileName: 'Artificial intelligence and Machine Learning .pdf',
+    year: 'N/A',
+    image:
+      'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 7,
+    title: 'Basic Coding',
+    fileName: 'Basic Coding .pdf',
+    year: 'N/A',
+    image:
+      'https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 8,
+    title: 'Computer Application',
+    fileName: 'Computer Application .pdf',
+    year: 'N/A',
+    image:
+      'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
+  {
+    id: 9,
+    title: 'Skill Development',
+    fileName: 'Skill Development .pdf',
+    year: 'N/A',
+    image:
+      'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
+  },
 ];
 
 export default function Certifications() {
