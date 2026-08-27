@@ -352,7 +352,7 @@ export default function Hero() {
   const cvViewerSrc = `${cvPath}#zoom=${cvZoom}`;
 
   const openCv = () => {
-    window.open(cvPath, '_blank', 'noopener,noreferrer');
+    setShowCvViewer(true);
   };
 
   return (
