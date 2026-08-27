@@ -351,6 +351,10 @@ export default function Hero() {
   const cvPath = '/cv/Spencer_jerrom.pdf';
   const cvViewerSrc = `${cvPath}#zoom=${cvZoom}`;
 
+  const openCv = () => {
+    window.open(cvPath, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="home" className="hero">
       <canvas ref={canvasRef} className="hero-canvas" />
@@ -404,21 +408,17 @@ export default function Hero() {
             </svg>
             <span>View My Work</span>
           </a>
-          <a
-            href={cvPath}
+          <button
+            type="button"
             className="btn btn-secondary"
-            onClick={(event) => {
-              event.preventDefault();
-              setCvZoom(100);
-              setShowCvViewer(true);
-            }}
+            onClick={openCv}
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path d="M10 3V13M10 13L14 9M10 13L6 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M4 15H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
             </svg>
             <span>View CV</span>
-          </a>
+          </button>
         </div>
       </div>
 

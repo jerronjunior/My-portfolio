@@ -7,7 +7,7 @@ const projects = [
     description: ' A cross-platform app for managing online stores, supporting Android, iOS,macOS, Linux, Windows, and web, with inventory management tools and a seamlessuser experience.',
     tags: ['Dart', 'Flutter', 'HTML'],
     image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: '#',
+    github: 'https://github.com/jerronjunior/JS-Stores.git',
     demo: '',
   },
   {
@@ -16,7 +16,7 @@ const projects = [
     description: 'An application aimed at facilitating communication for non-hearing and non speaking individuals using sign language translation..',
     tags: ['Java', 'Machine Learning', 'Firebase'],
     image: 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
-    github: '#',
+    github: 'https://github.com/jerronjunior/A2T-frond-end-flutter.git',
     demo: '',
   },
   {
