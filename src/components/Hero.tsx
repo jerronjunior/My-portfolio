@@ -348,7 +348,7 @@ export default function Hero() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const cvPath = '/cv/V.Spencer Jerrom.pdf';
+  const cvPath = '/cv/SPENCER.pdf';
   const cvViewerSrc = `${cvPath}#zoom=${cvZoom}`;
 
   const openCv = () => {
